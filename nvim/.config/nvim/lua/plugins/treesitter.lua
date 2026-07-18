@@ -7,8 +7,10 @@ return {
 		{ "nvim-treesitter/nvim-treesitter-textobjects", branch = "master" },
 	},
 	config = function()
+		local is_server = vim.fn.hostname() == "kailash-homelab"
+		local server_parsers = { "lua", "luadoc", "vim", "vimdoc", "bash", "python", "yaml", "toml", "json" }
 		require("nvim-treesitter.configs").setup({
-			ensure_installed = {
+			ensure_installed = is_server and server_parsers or {
 				"lua",
 				"luadoc",
 				"vim",

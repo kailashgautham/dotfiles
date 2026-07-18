@@ -94,13 +94,16 @@ return {
 		-- Install + auto-enable the servers below
 		require("mason").setup()
 
-		-- Auto-install formatters/linters used by conform.nvim
+		-- Detect if we're on the homelab server (headless, avoid installing dev tooling)
+		local is_server = vim.fn.hostname() == "kailash-homelab"
+
+		-- Auto-install formatters/linters used by conform.nvim (skip on server)
 		require("mason-tool-installer").setup({
-			ensure_installed = { "stylua", "prettier", "black", "isort" },
+			ensure_installed = is_server and {} or { "stylua", "prettier", "black", "isort" },
 		})
 
 		require("mason-lspconfig").setup({
-			ensure_installed = {
+			ensure_installed = is_server and {} or {
 				"lua_ls",
 				"pyright",
 				"ts_ls",
@@ -110,7 +113,7 @@ return {
 				"bashls",
 				"clangd",
 			},
-			automatic_enable = true, -- vim.lsp.enable() each installed server
+			automatic_enable = true,
 		})
 	end,
 }
