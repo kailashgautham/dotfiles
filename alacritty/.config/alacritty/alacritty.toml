@@ -1,0 +1,69 @@
+# ============================================================
+#  Alacritty configuration  (TOML format, Alacritty 0.13+)
+#  Theme: Tokyo Night  (matches the Neovim colorscheme)
+# ============================================================
+
+[window]
+padding = { x = 16, y = 16 }
+dynamic_padding = true
+opacity = 0.90              # see-through (0.0 transparent .. 1.0 opaque)
+blur = true                # frosted-glass blur (macOS + KDE Wayland)
+# decorations: "full" (default) | "none" | "transparent"/"buttonless" (macOS)
+decorations = "full"
+dynamic_title = true
+option_as_alt = "Both"     # macOS: makes Alt+j/k (move-line) work in nvim
+# startup_mode = "Maximized"   # uncomment to start maximized
+
+[font]
+size = 13.0
+builtin_box_drawing = true
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+bold   = { family = "JetBrainsMono Nerd Font", style = "Bold" }
+italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
+
+[cursor]
+style = { shape = "Block", blinking = "On" }
+blink_interval = 600
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[selection]
+save_to_clipboard = true
+
+[mouse]
+hide_when_typing = true
+
+# ---------------- Tokyo Night colors ----------------
+[colors.primary]
+background = "#1a1b26"
+foreground = "#c0caf5"
+
+[colors.cursor]
+text   = "#1a1b26"
+cursor = "#c0caf5"
+
+[colors.selection]
+text       = "CellForeground"
+background = "#283457"
+
+[colors.normal]
+black   = "#15161e"
+red     = "#f7768e"
+green   = "#9ece6a"
+yellow  = "#e0af68"
+blue    = "#7aa2f7"
+magenta = "#bb9af7"
+cyan    = "#7dcfff"
+white   = "#a9b1d6"
+
+[colors.bright]
+black   = "#414868"
+red     = "#f7768e"
+green   = "#9ece6a"
+yellow  = "#e0af68"
+blue    = "#7aa2f7"
+magenta = "#bb9af7"
+cyan    = "#7dcfff"
+white   = "#c0caf5"
