@@ -37,12 +37,13 @@ echo ""
 common_pkgs=(
     stow git zsh tmux
     build-essential curl wget
-    lsd fastfetch btop
+    lsd btop
 )
 
 # --- Full-profile extras ---
 full_pkgs=(
     alacritty
+    fastfetch
 )
 
 echo "==> Updating apt..."
